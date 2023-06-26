@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+*{
+    box-sizing: border-box;
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+        "h h h"
+        "a c c"
+        "f f f";
+    grid-template-rows: 150px auto 50px;
+}
+
+.kontener{
+    border: 2px solid black;
+}
+
+.k1{
+    grid-area: h;
+}
+
+.k2{
+    grid-area: a;
+}
+
+.k3{
+    grid-area: c;
+}
+
+.k4{
+    grid-area: f;
+}

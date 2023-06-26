@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.kontener{
+    border: 2px solid black;
+    width: 300px;
+    height: 200px;
+    float: right;
+}
+
+.main{
+    width: 100vw;
+}
+
+.centered{
+    margin: auto;
+    border: 2px dashed black;
+    overflow: visible;
+    width: 100vw;
+
+}

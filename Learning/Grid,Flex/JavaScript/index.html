@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wstęp do JS</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer>
+        function klikniecie2(){
+            window.alert("Element został kliknięty, funkcja w sekcji <head>");
+        }
+    </script>
+    <script src="./script.js" defer> </script> <!-- preferowany sposób -->
+</head>
+<body>
+    <div class="kontenerek" onclick="window.alert(`OK`)" >Kliknij mnie</div>
+    <div class="kontenerek" onclick="klikniecie()"> Kliknij mnie</div>
+    <div class="kontenerek" onclick="klikniecie2()"> Kliknij mnie</div>
+
+    <p id="paragraf"></p>
+
+    <!-- skrypt może znaleźć się w dowolnym miejscu-->
+    <script>
+        function klikniecie(){
+            window.alert("Element został kliknięty");
+        }
+    </script>
+    <script src="./script2.js"></script> <!-- najpierw pobrana zostanie zawartość strony, potem skrypt-->
+</body>
+</html>

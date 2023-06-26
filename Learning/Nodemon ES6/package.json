@@ -1,0 +1,14 @@
+{
+  "name": "module-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.mjs",
+  "scripts": {
+    "test": "nodemon app.mjs"
+  },
+  "author": "Mateusz Chrostowski",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

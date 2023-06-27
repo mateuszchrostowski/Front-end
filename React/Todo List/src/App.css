@@ -1,0 +1,7 @@
+.todo{
+    display: flex;
+}
+
+.rightButtons{
+    justify-self: flex-end;
+}

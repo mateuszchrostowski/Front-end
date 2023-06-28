@@ -1,0 +1,8 @@
+npm init
+npm install create-react-app
+npx create-react-app react-todo-app
+
+cd react-todo-app
+npm start
+
+npm install react-icons

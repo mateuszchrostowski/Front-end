@@ -1,0 +1,32 @@
+
+.main {    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /*padding: 1rem;*/
+}
+.main * {
+    padding: 2rem;
+}
+
+.k1, .k2{
+    font-size: 2vh;
+    border: 2px solid red;
+    width: 50vh;
+    height: 50vh;    
+    margin: 1rem;
+}
+
+.k1 img, .k2 img {
+    width: 50vh;
+    padding: 0px;
+}
+
+#text-column {
+    border: 2px solid red;
+    width: 50vh;
+    height: 50vh;
+    column-width: 60px;
+}
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <h1><img id="logo" src="https://cdn.pixabay.com/photo/2016/11/07/13/04/yoga-1805784_960_720.png"><label>Rejestracja</label></h1>
+    <form>
+        <fieldset>
+            <legend id="reg-legend">Rejestracja nowego użytkownika</legend>
+            <p>
+                <label for="username"> Nazwa: </br>
+                    <input type="text" name="username" id="username" placeholder="Username" required>
+                </label>
+            </p>
+            <p>
+                <label for="password"> Hasło: </br>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                </label>
+            </p>
+            <p>
+                <label for="email"> Adres Email: </br>
+                    <input type="email" required placeholder="example@email.com">
+                </label>
+            </p>
+                <p>
+                    <input type="radio" name="gender" id="man" value="Male" required>
+                    <label for="man">Mężczyzna</label>
+                    <input type="radio" name="gender" id="woman" value="Female">
+                    <label for="woman">Kobieta</label>
+                </p>
+            <p>
+                <label for="date">Data urodzenia:</label>
+                <input type="date" name="date" required>
+            </p>
+            <label for="sub">Subskrypcja:</label>    
+            <p>
+                <select name="sub" required>
+                    <option value="Standard (0.00 PLN)">Standard (0.00 PLN)</option>
+                    <option value="Premium (29.99 PLN/mies.)">Premium (29.99 PLN/mies.)</option>
+                </select>
+            </p>            
+            <p>                
+                <button type="submit">Zarejestruj</button>            
+            </p>
+        </fieldset>
+
+        
+
+    </form>
+
+    <div class="results">
+        <h2></h2>
+        <pre></pre>
+      </div>
+
+      <script src="script.js"></script>
+
+</body>
+</html>

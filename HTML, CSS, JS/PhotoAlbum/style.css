@@ -1,0 +1,20 @@
+.main {
+    display: flex;
+    flex-direction: row; /*wartość domyślna*/
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-box {
+    margin: 10px;
+    padding: 5px;
+    background-color: rgba(253, 192, 100, 0.315);
+    border-radius: 10px;
+    color: rgb(134, 27, 27);
+
+}
+
+.image-box:hover{
+    transform: scale(1.07);
+    transition: all 1s;
+}

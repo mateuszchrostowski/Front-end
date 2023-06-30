@@ -1,0 +1,36 @@
+h1 {    
+    height: 300px;
+    border: 2px solid;
+    border-color: black;
+    background: url('https://images.unsplash.com/photo-1683020543243-8f1a69c14493?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center;
+    background-size: cover;
+    position: relative;    
+}
+
+h1 > label {
+    position: absolute;
+    top: 40%;
+    left: 40%;   
+    color: white; 
+    font-size: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black ;    
+}
+
+fieldset label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;       
+}
+
+input {
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#reg-legend {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#logo {
+    width: 200px;    
+}

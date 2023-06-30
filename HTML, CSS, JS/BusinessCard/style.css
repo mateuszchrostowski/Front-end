@@ -1,0 +1,55 @@
+body {
+    background: url("https://images.unsplash.com/photo-1678524492872-52f846f381a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80") no-repeat center center fixed;
+    background-size: cover;
+}
+
+#pic {
+    height: 200px; 
+}
+
+.container {
+    margin: 60px auto; /* margines po 60 pikseli góra-dół i auto po prawej i lewej stronie od wyśrodkowanego divu*/
+    width: 600px;
+    height: 250px;
+    padding: 30px; /*oddzielenie treści wewnątrz divu od krawędzi*/
+    background-color: rgba(218, 218, 218, 0.507);
+    color: rgb(255, 255, 255);
+    border-radius: 4%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.281);
+}
+
+.business-card img {
+    border-radius: 10%;
+    float: left;
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.247);
+}
+
+.user, .email, .download-cv {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large; 
+    
+}
+
+.user, .email {
+    text-shadow: 1px 1px black;
+}
+
+.user span {
+    border-bottom: 2px solid rgb(226, 226, 226);
+    padding-bottom: 3px;
+}
+
+.download-cv a {
+    color:rgb(14, 20, 116);
+    font-weight: bold;
+}
+
+.download-cv a:hover /* pseudoklasa :hover - stylowanie w momencie najechania kursorem na obiekt*/ {
+    color:rgb(37, 238, 238)
+}
+
+::selection {
+    color: rgba(79, 9, 107, 0.384);
+    background-color: rgba(87, 11, 131, 0.247);
+}

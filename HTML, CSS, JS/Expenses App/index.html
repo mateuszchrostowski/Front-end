@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"> 
+      <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet'>
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!-- function that filters list by name -->
+  <script> 
+    $(document).ready(function(){
+      $("#name").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $(".expense-item").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+        
+      });
+    });
+    </script>
+
+    <!-- function that filters by select option  -->
+    <script>
+      $(function() {
+        $("#form-select").change(function() {
+        var wartosc = $('#form-select').val();
+        if (wartosc != "all") $(".expense-item").show().not('.' + wartosc).hide();
+        else $(".expense-item").show();
+      });
+    });
+    </script>    
+    <script>
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";        
+      }
+      
+      
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+      </script>
+</head>
+<body>  
+        <nav>          
+          <ul class="menu">
+            <p><span id="creator">Made by Mateusz Chrostowski</span></p>           
+              <li>                
+                <a href="#"><span class="material-icons" id="menu-icon">
+                  menu
+                  </span>Menu</a>
+                  </p>                  
+                  <ul class="nav-dropdown">
+                    <li class="nav-item"><a href="https://cv.parleto.io/files/tasks/ui.html#">Dashboard</a></li>
+                    <li class="nav-item"><a href="https://cv.parleto.io/files/tasks/ui.html#">Reports</a></li>
+                    <li class="nav-item"><a href="https://cv.parleto.io/files/tasks/ui.html#">Expenses</a></li>
+                    <li class="nav-item"><a href="https://cv.parleto.io/files/tasks/ui.html#">Settings</a></li>
+                    <li class="nav-item"><a href="https://cv.parlet o.io/files/tasks/ui.html#">Profile</a></li>
+                    <li class="nav-item"><a href="https://cv.parleto.io/files/tasks/ui.html#">Log out</a></li>
+                  </ul>
+              </li>
+          </ul>
+        </nav>
+      </aside>
+      <section class="main">
+        <section class="expenses">
+          <h1 id="expenses-title">Expenses</h1>
+          <form>
+            <label for="range"><span id="period-span">Period</span><span id="range">
+                <input id="date-from" type="date"><span>-</span>
+                <input id="date-to" type="date"></span></label>
+            <label for="category" id="category-label"><span id="category-span">Category</span>
+              <select id="form-select" ria-label="Default select example">
+                <option value="all" selected>all</option>
+                <option value="food">food</option>
+                <option value="car">car</option>                
+              </select>              
+            </label>
+            <label id="name-label"><span id="name-span">Name</span>
+              <input placeholder="search" class="mdc-text-field" type="text" id="name">
+            </label>
+          </form>
+          <div class="expenses-box">
+              <div class="expense-item mdc-card food">
+                <div class="name">coffee</div>
+                <div class="price"><span class="price-amount">40</span><span class="price-currency">PLN</span></div>
+                <div class="category">food</div>
+                <div class="date">2022-07-16</div>
+              </div>
+              <div class="expense-item mdc-card food">
+                <div class="name">bread</div>
+                <div class="price"><span class="price-amount">8</span><span class="price-currency">PLN</span></div>
+                <div class="category">food</div>
+                <div class="date">2022-08-03</div>
+              </div>
+              <div class="expense-item mdc-card food">
+                <div class="name">cheese</div>
+                <div class="price"><span class="price-amount">21</span><span class="price-currency">PLN</span></div>
+                <div class="category">food</div>
+                <div class="date">2022-08-03</div>
+              </div>
+              <div class="expense-item mdc-card car">
+                <div class="name">fuel</div>
+                <div class="price"><span class="price-amount">320</span><span class="price-currency">PLN</span></div>
+                <div class="category">car</div>
+                <div class="date">2022-08-14</div>
+              </div>
+              <div class="expense-item mdc-card food">
+                <div class="name">bread</div>
+                <div class="price"><span class="price-amount">8</span><span class="price-currency">PLN</span></div>
+                <div class="category">food</div>
+                <div class="date">2022-09-01</div>
+              </div>
+              <div class="expense-item mdc-card food">
+                <div class="name">ham</div>
+                <div class="price"><span class="price-amount">14</span><span class="price-currency">PLN</span></div>
+                <div class="category">food</div>
+                <div class="date">2022-09-01</div>
+              </div>
+              <div class="expense-item mdc-card food">
+                <div class="name">butter</div>
+                <div class="price"><span class="price-amount">6</span><span class="price-currency">PLN</span></div>
+                <div class="category">food</div>
+                <div class="date">2022-09-10</div>
+              </div>
+              <div class="expense-item mdc-card car">
+                <div class="name">fuel</div>
+                <div class="price"><span class="price-amount">320</span><span class="price-currency">PLN</span></div>
+                <div class="category">car</div>
+                <div class="date">2022-09-10</div>
+              </div>
+              <div class="expense-item mdc-card car">
+                <div class="name">car wash</div>
+                <div class="price"><span class="price-amount">60</span><span class="price-currency">PLN</span></div>
+                <div class="category">car</div>
+                <div class="date">2022-09-10</div>
+              </div>
+              <div class="expense-item mdc-card new">
+                <div class="name">Add expense</div>                
+                <button class="open-button" onclick="openForm()">+</button>
+              </div>
+              <div class="form-popup" id="myForm" hidden>
+                <form class="add-form" action="/action_page.php" class="form-container">
+                  <h1>Add new expense</h1>              
+                  <label for="name-add-form"><b>Name</b></label>
+                  <input type="text" placeholder="Enter name" id="name-add-form" required>              
+                  <label for="amount-add-form"><b>Amount</b></label>
+                  <input type="text" placeholder="Enter amount in PLN" id="amount-add-form" required>
+                  <label for="category-add-form"><b>Category</b></label>
+                  <select id="category-add-form" ria-label="Default select example">
+                    <option value="" selected disabled>choose category</option>
+                    <option value="food">food</option>
+                    <option value="car">car</option>                
+                  </select>                  
+                  <label for="date-add-form"><b>Date</b></label>
+                  <input type="date" placeholder="Enter amount in PLN" id="amount-add-form" required>
+                  <br/>              
+                  <button type="submit" class="mdc-button">Add</button>
+                  <button type="button" class="mdc-button cancel" onclick="closeForm()">Close</button>
+                </form>
+              </div>             
+          </div>
+        </section>        
+        <h2 id="summary-title">Summary</h2>
+        <h3 id="total"><span>Total: 797 PLN</span></h3>
+        <section class="summary">          
+          <div id="summaries">
+            <div class="per">
+              <h3>Per period</h3>
+              <section class="summary-box-period">
+                <div class="sum-period-item mdc-card">
+                  <div class="date">2022-07</div>
+                  <div class="amount">40</div>
+                  <div class="currency">PLN</div>
+                </div>
+                <div class="sum-period-item mdc-card">
+                  <div class="date">2022-08</div>
+                  <div class="amount">349</div>
+                  <div class="currency">PLN</div>
+                </div>
+                <div class="sum-period-item mdc-card">
+                  <div class="date">2022-09</div>
+                  <div class="amount">408</div>
+                  <div class="currency">PLN</div>
+                </div>
+              </section>
+            </div>
+            <div class="per">
+              <h3>Per category</h3>
+              <section class="summary-box-category">
+                <div class="sum-category-item mdc-card">
+                  <div class="date">food</div>
+                  <div class="amount">97</div>
+                  <div class="currency">PLN</div>
+                </div>
+                <div class="sum-category-item mdc-card">
+                  <div class="date">car</div>
+                  <div class="amount">700</div>
+                  <div class="currency">PLN</div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+      </section>    
+</body>
+</html>

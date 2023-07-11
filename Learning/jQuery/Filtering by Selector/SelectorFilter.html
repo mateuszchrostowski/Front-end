@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function filterList(value) {
+	var list = $(".recruiter .recruiter-info");
+	$(list).hide();
+	if (value == "All") {
+		$(".recruiter").find("article").each(function (i) {
+			$(this).show();
+		});
+	} else {
+		// *=" means that if a data-custom type contains multiple values, it will find them
+		$(".recruiter").find("article[data-custom-type*="+value+"]").each(function (i) {
+			$(this).show();
+		});
+	}
+}
+    </script>
+</head>
+<body>
+    <h2>Search Person in...</h2>
+<select id="sort-recruiters">
+  	<option value="All">All Places</option>
+  	<option value="GA">Georgia</option>
+  	<option value="SC">South Carolina</option>
+  	<option value="TX">Texas</option>
+
+</select> 
+<hr />
+<section class="recruiter">
+  <article class="recruiter-info" data-custom-type="TX SC">
+      <div class="pic">
+          <img alt="alt" title="title" src="http://placehold.it/150x150">
+      </div>
+      <h3>Bio1</a></h3>
+      <p>This is a short description about recruiter 1.</p>
+  </article>
+  <article class="recruiter-info" data-custom-type="GA SC">
+      <div class="pic">
+          <img alt="alt" title="title" src="http://placehold.it/150x150">
+      </div>
+      <h3>Bio2</a></h3>
+      <p>This is a short description about recruiter 2.</p>
+  </article>
+  <article class="recruiter-info" data-custom-type="GA">
+      <div class="pic">
+          <img alt="alt" title="title" src="http://placehold.it/150x150">
+      </div>
+      <h3>Bio3</a></h3>
+      <p>This is a short description about recruiter 3.</p>
+  </article>
+</section>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+

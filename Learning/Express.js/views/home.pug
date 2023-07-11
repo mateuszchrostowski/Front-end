@@ -1,0 +1,17 @@
+html
+    head
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700")
+        link(rel="stylesheet" href="/css/main.css")
+    body
+        .wrapper
+            h1
+                | Be a hero. Adopt a dog.
+
+
+
+        if (formMessage.length)
+                .lightbox(v-show="showFeedback")
+                    .lightbox__content
+                        h2.lightbox__header #{ formMessage }
+                        .lightbox__actions.lightbox__actions--centered
+                            button.btn.btn--primary(@click="closeFeedbackLightbox") Close

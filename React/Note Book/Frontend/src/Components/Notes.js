@@ -4,54 +4,55 @@ import NewNote from './NewNote';
 import EditNote from './EditNote';
 import Modal from 'react-modal';
 import axios from '../axios';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import UserHome from './userHome';
 import styles from '../modalStyle'
 
 class Notes extends React.Component {
   constructor(props) {
-    super(props);    
+    super(props);
     this.state = {
       notes: [],
-      userData: [],      
+      userData: [],
       showEditModal: false,
       editNote: {}
     };
   }
 
-  componentDidMount() {  
-    this.fetchUserData();     
-    console.log(this.state); 
+  componentDidMount() {
+    this.fetchUserData();
+    console.log(this.state);
     console.log(window.localStorage.getItem('loggedIn'));
-    console.log(window.localStorage.getItem('token'));    
+    console.log(window.localStorage.getItem('token'));
   }
 
   async fetchNotes() {
-      
+
     const userid = window.localStorage.getItem("userId");
-   
+
     //Poniższy sposób nie zadziałał
     //const user = this.state.userData._id;
-    
+
     const res = await axios.get('/usernotes/' + userid);
-    
+
     const notes = res.data;
     this.setState({
-       notes: notes
+      notes: notes
     });
   }
-  
+
   logOut = () => {
     window.localStorage.clear();
     window.location.href = "./sign-in";
   };
 
-  showState() {    
+  showState() {
     console.log(this.state);
   };
 
-  fetchUserData() {fetch("http://localhost:3001/api/userData", {
+  fetchUserData() {
+    fetch("http://localhost:3001/api/userData", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -64,37 +65,40 @@ class Notes extends React.Component {
       }),
     }).then((res) => res.json())
     .then((data) => {
-      console.log(data.data)    
+      console.log(data.data)
       const userData = data.data;
       //this.setState(Object.assign({}, this.state.userId = userId));
       //this.setState(Object.assign(this.state,{userId:userId})); 
       this.setState({
         userData: userData
-    });    
+      });
 
       window.localStorage.setItem("userId", userData._id);
 
       console.log(window.localStorage.getItem("userId"));
       this.fetchNotes();
-        
-      
+
+
 
       if (data.data == "token expired") {
         alert("Token expired login again");
         window.localStorage.clear();
         window.location.href = "./sign-in";
       };
-    })};
-  
-  
+    })
+  };
+
+
 
   async deleteNote(id) {
     const notes = [...this.state.notes]
-                    .filter(note => note._id !== id);
+      .filter(note => note._id !== id);
 
     await axios.delete('/notes/' + id);
-    
+
     this.setState({ notes });
+
+    NotificationManager.info('Note has been deleted');
   }
 
   async addNote(note) {
@@ -104,13 +108,19 @@ class Notes extends React.Component {
       const res = await axios.post('/notes', note);
       const newNote = res.data;
       console.log(newNote);
+      console.log(res.status)
       // add to frontend
       notes.push(newNote);
       this.setState({
         notes: notes
-    });
+      });
+
+      if (res.status == 201) {
+        NotificationManager.success(`Added "${newNote.title}" note`, 'Succes');
+      }
+
     } catch (err) {
-      NotificationManager.error(err.response.data.message);
+      NotificationManager.error('Error', `${err.message}`);
     }
   }
 
@@ -141,39 +151,39 @@ class Notes extends React.Component {
 
   render() {
     return (
-    <div>
-      <NotificationContainer />
+      <div>
+        <NotificationContainer />
 
-      <UserHome userData={this.state.userData}/>
+        <UserHome userData={this.state.userData} />
 
 
-      <h1>Note Book</h1>
+        <h1>Note Book</h1>
 
-      <NewNote
-        onAdd={(note) => this.addNote(note)} userId={this.state.userData._id}/>      
+        <NewNote
+          onAdd={(note) => this.addNote(note)} userId={this.state.userData._id} />
 
-      <Modal style={styles}
-        isOpen={this.state.showEditModal}>
+        <Modal style={styles}
+          isOpen={this.state.showEditModal}>
           <EditNote
             title={this.state.editNote.title}
             discription={this.state.editNote.discription}
             id={this.state.editNote._id}
             onEdit={note => this.editNote(note)} />
-          <button className='btn btn-danger' 
+          <button className='btn btn-danger'
             onClick={() => this.toggleModal()}>Cancel</button>
-      </Modal>
+        </Modal>
 
-      {this.state.notes.map(note => (
-        <Note 
-          key={note._id}
-          title={note.title}
-          discription={note.discription}
-          id={note._id}
-          onEdit={(note) => this.editNoteHandler(note)}
-          onDelete={(id) => this.deleteNote(id)} />
-      ))}
+        {this.state.notes.map(note => (
+          <Note
+            key={note._id}
+            title={note.title}
+            discription={note.discription}
+            id={note._id}
+            onEdit={(note) => this.editNoteHandler(note)}
+            onDelete={(id) => this.deleteNote(id)} />
+        ))}
 
-    </div>
+      </div>
     );
   }
 }

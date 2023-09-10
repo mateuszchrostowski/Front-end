@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
 
 export default function Login() {
   const [nickname, setNickname] = useState("");
-  const [password, setPassword] = useState("");  
+  const [password, setPassword] = useState("");
+   
   
   
   const handleSubmit = (submit)=> {
@@ -22,11 +25,14 @@ export default function Login() {
         password,
       }),}).then((res) =>res.json()).then((data) => {
         if(data.status == 401){
-          alert('User not found');        
+          console.log(data)
+          NotificationManager.error(data.error, 'Error');
+          //alert(data.error);
+          //alert('User not found');        
           return;
         }        
         if (data.status == "ok") {
-          alert("login successful");         
+          //alert("login successful");         
           window.localStorage.setItem("token", data.data);
           console.log(window.localStorage.getItem('token'));    
           window.localStorage.setItem("loggedIn", true);          
@@ -39,7 +45,7 @@ export default function Login() {
   
   
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>        
         <h3>Sign In</h3>
 
         <div className="mb-3">
@@ -83,6 +89,8 @@ export default function Login() {
         <p className="forgot-password text-right">
           Forgot <a href="#">password?</a>
         </p>
+
+        <NotificationContainer/>
       </form>
     )
   

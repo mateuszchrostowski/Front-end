@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 export default function SignUp() {
   
@@ -22,11 +23,11 @@ export default function SignUp() {
         }),
       }).then((res) => res.json()).then((data) => {        
         if (data.status == 201) {          
-          alert("Registration Successful");
+          NotificationManager.success('Registration successful');
           window.location.href = "./sign-in";
         }        
         else if (data.status == 401) {
-          alert("User already exists");
+          NotificationManager.error(data.error, 'Error');
         }
       });
     };
@@ -65,6 +66,8 @@ export default function SignUp() {
         <p className="forgot-password text-right">
           Already registered <a href="/sign-in">sign in?</a>
         </p>
+        
+        <NotificationContainer/>
       </form>
     )
   

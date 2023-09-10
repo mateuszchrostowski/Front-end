@@ -36,9 +36,10 @@ class UserActions {
 
                 if (res.status(201)) {                    
                     return res.json({ status: "ok", data: token });
-                } else {
-                 return res.json({ error: "error" });
-            }};
+                }              
+            }
+            else{
+              return res.json({ status: 401, error: "Invalid password" });};
             
         } catch (error) {
             return res.status(401).json({error: "Invalid Nickname or Password"});

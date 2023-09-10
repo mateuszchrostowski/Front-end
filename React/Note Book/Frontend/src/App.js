@@ -5,19 +5,24 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Notes from './Components/Notes';
 import Login from './Components/Login';
 import SignUp from './Components/Signup';
+import React, { useLayoutEffect } from 'react';
 
 
+function App() {
 
-function App() {  
+  // useLayoutEffect(() => {
+  //   document.body.style.backgroundColor = "transparent";
+  // });
+
   const isLoggedIn = window.localStorage.getItem("loggedIn");
-  return (    
+  return (
     <Router>
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light fixed-top">
           <div className="container">
             <div className="navbar-brand">
               NoteBook App by Mateusz Chrostowski
-            </div>            
+            </div>
             <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarToggler">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
@@ -31,14 +36,14 @@ function App() {
                   </Link>
                 </li>
               </ul>
-            </div>            
+            </div>
           </div>
         </nav>
 
         <div className="main">
           <div className="auth-inner">
             <Routes>
-              <Route exact path="/" element={isLoggedIn === "true" ? <Notes /> : <Login />}/>          
+              <Route exact path="/" element={isLoggedIn === "true" ? <Notes/> : <Login />} />
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/Notes" element={<Notes />} />

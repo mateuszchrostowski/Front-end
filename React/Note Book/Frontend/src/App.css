@@ -1,5 +1,9 @@
-/* #root {
-  box-sizing: border-box;  
+/* 
+#root {
+  background: linear-gradient(180deg,
+      rgb(96, 39, 150) 0%,
+      rgba(100, 115, 255, 1) 100%);
+  
 } */
 
 
@@ -8,24 +12,15 @@
   background: linear-gradient(180deg,
       rgb(96, 39, 150) 0%,
       rgba(100, 115, 255, 1) 100%);
-  
 }
 
-html {
-  background: linear-gradient(180deg,
-      rgb(96, 39, 150) 0%,
-      rgba(100, 115, 255, 1) 100%);
-  
-}
 
-.App {
-  padding: 10em;
-}
 
 .main {
-  display: flex;
+  display: flex;  
   align-items: center;
   justify-content: center;
+  min-height: max(100px, 50vh, 100vh);
 }
 
 #edit-note {
@@ -48,14 +43,15 @@ html {
 .home {
   color: #efefeff3;
 }
+
 .home h1 {
   margin-top: 0.4em;
 }
 
 
 #user-data {
- max-width: 20rem;
- margin-bottom: 1em;
+  max-width: 20rem;
+  margin-bottom: 1em;
 }
 
 h1 {
@@ -65,7 +61,7 @@ h1 {
 }
 
 
-.note { 
+.note {
   align-items: center;
   margin: 8px auto;
   color: #fff;
